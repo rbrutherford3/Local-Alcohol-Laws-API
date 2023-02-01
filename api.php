@@ -49,13 +49,13 @@ $lal = new lal();
 
 // Check for token
 if (!isset($_GET['token']))
-    echo "Need to supply a token for use of the Local Alcohol Laws API";
+    echo "Error Code 1 - Need to supply a token for use of the Local Alcohol Laws API";
 // Check for state and place
 else if (!(isset($_GET['state']) && isset($_GET['place'])))
-    echo "Need to specify both state and place";
+    echo "Error Code 2 - Need to specify both state and place";
 // Validate token
 else if (!$lal->validate_token($_GET['token']))
-    echo "Token not valid";
+    echo "Error Code 3 - Token not valid";
 // Perform query and output json
 else {
     $state = $_GET['state'];
